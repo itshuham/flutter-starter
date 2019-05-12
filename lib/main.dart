@@ -13,7 +13,11 @@ class _AppBodyState extends State<AppBody> {
   String name="shubham";
    _changetext(){
     setState(() {
-      this.name="Shubham Gupta";
+      if(name.startsWith("s")){
+        name="harshit gupta";
+      }else{
+        name="ahahah";
+      }
     });
   }
   @override
@@ -25,7 +29,7 @@ class _AppBodyState extends State<AppBody> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.ac_unit),
-            onPressed: null,
+            onPressed: _changetext,
           )
         ],
       ),
@@ -35,7 +39,7 @@ class _AppBodyState extends State<AppBody> {
             Text(name),
             RaisedButton(
               child: Text('Click To change'),
-              onPressed: _changetext,
+              onPressed: null,
             )
           ],
         ),
