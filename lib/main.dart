@@ -6,6 +6,7 @@ main()=>runApp(MaterialApp(
           title: Text('Starter App'),
           centerTitle: true,
         ),
+        
         body: AppBody(),
       ),
     ));
@@ -13,8 +14,50 @@ main()=>runApp(MaterialApp(
 class AppBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Hello'),
+    return Container(
+      padding: EdgeInsets.all(15.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              RaisedButton(
+                child: Text("Raised Button",
+                style: TextStyle(color: Colors.deepPurple,
+                fontSize: 25.0,
+                fontWeight:FontWeight.bold,
+                ),),
+                onPressed: null,
+                
+              ),
+              MaterialButton(
+                child: Text('Material Button'),
+                onPressed: null,
+               
+              ),
+              FlatButton(
+                child:Text("Flat Button"),
+                onPressed: null,
+              )
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              OutlineButton(
+                child: Text("OUtline Button"),
+                onPressed: null,
+              ),
+              IconButton(
+                icon: Icon(Icons.add_alarm),
+                iconSize: 32.0,
+                tooltip: 'Icon Button',
+                onPressed: null,
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
