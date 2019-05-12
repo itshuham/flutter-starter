@@ -1,69 +1,46 @@
 import 'package:flutter/material.dart';
 main()=>runApp(MaterialApp(
       title: 'Hello App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Starter App'),
-          centerTitle: true,
-        ),
-        body: AppBody(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.add)),
-          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-          floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-          
-      ),
+      home: AppBody()
     ));
 
-class AppBody extends StatelessWidget {
+class AppBody extends StatefulWidget {
+  @override
+  _AppBodyState createState() => _AppBodyState();
+}
+
+class _AppBodyState extends State<AppBody> {
+  String name="shubham";
+   _changetext(){
+    setState(() {
+      this.name="Shubham Gupta";
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              RaisedButton(
-                child: Text("Raised Button",
-                style: TextStyle(color: Colors.deepPurple,
-                fontSize: 25.0,
-                fontWeight:FontWeight.bold,
-                ),),
-                onPressed: null,
-                
-                
-              ),
-              MaterialButton(
-                child: Text('Material Button'),
-                onPressed: null,
-               
-              ),
-              FlatButton(
-                child:Text("Flat Button"),
-                onPressed: null,
-              )
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              OutlineButton(
-                child: Text("OUtline Button"),
-                onPressed: null,
-              ),
-              IconButton(
-                icon: Icon(Icons.add_alarm),
-                iconSize: 32.0,
-                tooltip: 'Icon Button',
-                onPressed: null,
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('App bar title'),
+        backgroundColor: Colors.lightBlueAccent,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.ac_unit),
+            onPressed: null,
           )
         ],
       ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Text(name),
+            RaisedButton(
+              child: Text('Click To change'),
+              onPressed: _changetext,
+            )
+          ],
+        ),
+      ),
+
     );
   }
 }
