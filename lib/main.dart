@@ -6,8 +6,13 @@ main()=>runApp(MaterialApp(
           title: Text('Starter App'),
           centerTitle: true,
         ),
-        
         body: AppBody(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.add)),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+          
       ),
     ));
 
@@ -29,6 +34,7 @@ class AppBody extends StatelessWidget {
                 fontWeight:FontWeight.bold,
                 ),),
                 onPressed: null,
+                
                 
               ),
               MaterialButton(
